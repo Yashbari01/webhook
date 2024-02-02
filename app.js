@@ -118,10 +118,10 @@ async function sendToDialogflow(userMessage, sessionId) {
 }
 
 
-console.log("WHATSAPP_TOKEN:", process.env.WHATSAPP_TOKEN);
-console.log("VERIFY_TOKEN:", process.env.VERIFY_TOKEN);
-console.log("CREDENTIALS:", process.env.CREDENTIALS);
-console.log("Credentials:", credentials);
+// console.log("WHATSAPP_TOKEN:", process.env.WHATSAPP_TOKEN);
+// console.log("VERIFY_TOKEN:", process.env.VERIFY_TOKEN);
+// console.log("CREDENTIALS:", process.env.CREDENTIALS);
+// console.log("Credentials:", credentials);
 
 // Send Dialogflow response back to the user
 function sendResponseToUser(phoneNumberId, to, text) {
