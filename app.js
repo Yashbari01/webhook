@@ -100,6 +100,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios").default;
 const { SessionsClient } = require('dialogflow').v2;
+// const { SessionsClient } = require('@google-cloud/dialogflow');
 const app = express().use(bodyParser.json()); // creates express http server
 
 
@@ -181,8 +182,8 @@ async function handleUserMessage(phoneNumberId, from, message) {
 
 // Send user message to Dialogflow
 async function sendToDialogflow(userMessage, sessionId) {
-    const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
-console.log('sessionPath',sessionPath);
+    const sessionPath = sessionClient.sessionPath(projectId, sessionId);
+    console.log('sessionPath', sessionPath);
 
     const request = {
         session: sessionPath,
@@ -193,7 +194,6 @@ console.log('sessionPath',sessionPath);
             },
         },
     };
-console.log('request',request);
 
     const [response] = await sessionClient.detectIntent(request);
     return response.queryResult.fulfillmentText;
