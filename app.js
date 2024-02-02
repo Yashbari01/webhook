@@ -99,7 +99,7 @@ require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios").default;
-const { SessionsClient } = require('dialogflow');
+const { SessionsClient } = require('dialogflow').v2;
 const app = express().use(bodyParser.json()); // creates express http server
 
 
@@ -163,6 +163,7 @@ const dialogflowConfig = {
         client_email: credentials.client_email,
     },
 };
+const { SessionsClient } = require('dialogflow').v2;
 const sessionClient = new SessionsClient(dialogflowConfig);
 
 // Handle incoming user messages
