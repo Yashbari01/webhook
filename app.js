@@ -110,7 +110,7 @@ app.listen(process.env.PORT || 1337, () => console.log("webhook is listening"));
 app.post("/webhook", (req, res) => {
     try {
         let body = req.body;
-
+console.log('body',body);
         if (
             body &&
             body.object &&
@@ -145,6 +145,10 @@ app.get("/webhook", (req, res) => {
     const mode = req.query["hub.mode"];
     const receivedToken = req.query["hub.verify_token"];
     const challenge = req.query["hub.challenge"];
+
+    console.log('mode',mode);
+    console.log('receivedToken',receivedToken);
+    console.log('challenge',challenge);
 
     if (mode === "subscribe" && receivedToken === verifyToken) {
         console.log("WEBHOOK_VERIFIED");
