@@ -84,9 +84,13 @@ const sessionClient = new SessionsClient(dialogflowConfig);
 // Handle incoming user messages
 async function handleUserMessage(phoneNumberId, from, message) {
     try {
+        // Replace 'abcd1234' with your desired session ID
+        const sessionId = 'abcd1234';
+
         // Send the user message to Dialogflow for processing
-        const dialogflowResponse = await sendToDialogflow(message, phoneNumberId);
+        const dialogflowResponse = await sendToDialogflow(message, phoneNumberId, sessionId);
         console.log('dialogflowResponse', dialogflowResponse);
+
         // Send the Dialogflow response back to the user
         sendResponseToUser(phoneNumberId, from, dialogflowResponse);
     } catch (error) {
@@ -95,7 +99,7 @@ async function handleUserMessage(phoneNumberId, from, message) {
 }
 
 // Send user message to Dialogflow
-async function sendToDialogflow(userMessage, sessionId) {
+async function sendToDialogflow(userMessage, phoneNumberId, sessionId) {
     console.log('userMessage:', userMessage);
     console.log('sessionId:', sessionId);
 
