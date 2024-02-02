@@ -9,6 +9,7 @@
   "author": "WhatsApp",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/dialogflow": "^6.3.1",
     "axios": "^1.6.7",
     "body-parser": "^1.20.2",
     "dialogflow": "^1.2.0",
