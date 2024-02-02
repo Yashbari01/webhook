@@ -99,8 +99,8 @@ require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios").default;
-// const { SessionsClient } = require('dialogflow').v2;
-const { SessionsClient } = require('@google-cloud/dialogflow');
+const { SessionsClient } = require('dialogflow').v2;
+// const { SessionsClient } = require('@google-cloud/dialogflow');
 const app = express().use(bodyParser.json()); // creates express http server
 
 
