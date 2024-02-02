@@ -182,6 +182,7 @@ async function handleUserMessage(phoneNumberId, from, message) {
 // Send user message to Dialogflow
 async function sendToDialogflow(userMessage, sessionId) {
     const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
+console.log('sessionPath',sessionPath);
 
     const request = {
         session: sessionPath,
@@ -192,10 +193,12 @@ async function sendToDialogflow(userMessage, sessionId) {
             },
         },
     };
+console.log('request',request);
 
     const [response] = await sessionClient.detectIntent(request);
     return response.queryResult.fulfillmentText;
 }
+
 
 console.log("WHATSAPP_TOKEN:", process.env.WHATSAPP_TOKEN);
 console.log("VERIFY_TOKEN:", process.env.VERIFY_TOKEN);
