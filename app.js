@@ -163,7 +163,7 @@ const dialogflowConfig = {
         client_email: credentials.client_email,
     },
 };
-const { SessionsClient } = require('dialogflow').v2;
+
 const sessionClient = new SessionsClient(dialogflowConfig);
 
 // Handle incoming user messages
