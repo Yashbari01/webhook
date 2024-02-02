@@ -166,13 +166,13 @@ const dialogflowConfig = {
 };
 
 const sessionClient = new SessionsClient(dialogflowConfig);
-
+console.log('sessionClient', sessionClient);
 // Handle incoming user messages
 async function handleUserMessage(phoneNumberId, from, message) {
     try {
         // Send the user message to Dialogflow for processing
         const dialogflowResponse = await sendToDialogflow(message, phoneNumberId);
-
+        console.log('dialogflowResponse', dialogflowResponse);
         // Send the Dialogflow response back to the user
         sendResponseToUser(phoneNumberId, from, dialogflowResponse);
     } catch (error) {
@@ -194,7 +194,7 @@ async function sendToDialogflow(userMessage, sessionId) {
             },
         },
     };
-
+    console.log("request:", request);
     const [response] = await sessionClient.detectIntent(request);
     return response.queryResult.fulfillmentText;
 }
